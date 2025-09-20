@@ -24,12 +24,12 @@ export const AuthContextProvider = ({ children }) => {
 
     }, [])
     return (
-        <AuthContext.Provider value={{ user}}>
+        <AuthContext.Provider value={{ user }}>
             {children}
         </AuthContext.Provider>
-    )
+    );
 
-}
+};
 
 export const UserAuth = () => {
     return useContext(AuthContext);
