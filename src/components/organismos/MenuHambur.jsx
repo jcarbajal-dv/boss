@@ -10,11 +10,11 @@ export function MenuHambur() {
         <NavBar>
             <section>  
                 <HamburguerMenu onClick={() => setClick(!click)}> 
-                <div class="container">  
-                    <label className={click?"hamburger-label active": "hamburger-label"} for="label-check">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
+                <div className="container">  
+                    <label className={click?"hamburger-label active": "hamburger-label"} >
+                    <div className="line1"></div>
+                    <div className="line2"></div>
+                    <div className="line3"></div>
                     <label></label></label>
                 </div>
                 </HamburguerMenu>
