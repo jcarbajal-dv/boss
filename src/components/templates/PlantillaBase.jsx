@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { Header } from "../../index";
-import { useState } from "react";
-
-export function HomeTemplate() {
+export function PlantillaBase() {
     const [state, setState] = useState(false);
     return (
     <Container>
@@ -19,7 +17,7 @@ export function HomeTemplate() {
         <section className="area2">
 
         </section>
-        
+
         <section className="main">
 
         </section>
