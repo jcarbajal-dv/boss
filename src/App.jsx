@@ -3,6 +3,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import {AuthContextProvider, MyRoutes, Light, Dark, Sidebar, SidebarCard, MenuHambur} from "./index"
 import { createContext, useState } from 'react'
 import {Device} from "./styles/breackpoints"
+import {useLocation} from "react-router-dom";
 
 export const ThemeContext = createContext(null);
 
@@ -12,16 +13,18 @@ function App() {
   const theme = themeuse === "light" ? "light":"dark";
   const themeStyles = theme=== "light" ? Light : Dark;
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
+  const {pathname} = useLocation();
   return (
 
     <>
     <ThemeContext.Provider value={{theme, setTheme}}>
       <ThemeProvider theme={themeStyles}>
         <AuthContextProvider>
-          <Container className={sidebarOpen?"active":""}>
-
-            <section className="ContentSidebar">
+          {pathname == "/Login" ? (
+              <Login />
+            ) : (
+            <Container className={sidebarOpen?"active":""}>
+                          <section className="ContentSidebar">
               <Sidebar state={sidebarOpen} setState={() => setSidebarOpen(!sidebarOpen)}/>
             </section>
             <section className="ContentMenuHambur"><MenuHambur/></section>
@@ -29,6 +32,8 @@ function App() {
               <MyRoutes/>
             </section>
           </Container>
+          )}
+
           <ReactQueryDevtools initialIsOpen = {false} />
         </AuthContextProvider>
       </ThemeProvider>
