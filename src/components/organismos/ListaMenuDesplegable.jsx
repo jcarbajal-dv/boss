@@ -12,9 +12,11 @@ export function ListaMenuDesplegable({ data, top, funcion }) {
           </ItemsDesplegable>
         );
       })}
-    </Container>
+      </Container>
+    
   );
 }
+
 const Container = styled.div`
   padding: 10px;
   display: flex;
