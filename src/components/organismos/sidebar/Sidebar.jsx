@@ -54,7 +54,7 @@ export function Sidebar({ state, setState }) {
               <span className={state ? "label_ver" : "label_oculto"}>
                 {label}
               </span>
-             
+            
             </NavLink>
           </div>
         ))}
