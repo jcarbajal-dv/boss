@@ -4,7 +4,7 @@ import { Device } from "../../styles/breackpoints";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import icono from "../../assets/icono.png";
+import carrito from "../../assets/carrito.svg";
 import logo from "../../assets/inventarioslogo.png";
 import { MdOutlineInfo } from "react-icons/md";
 import { ThemeContext } from "../../App";
@@ -66,20 +66,8 @@ export function LoginTemplate() {
                   required: true,
                 })}
               />
-              <label className="form__label">Correo Electrónico</label>
+              <label className="form__label">pass</label>
               {errors.correo?.type === "required" && <p>Campo requerido</p>}
-            </InputText>
-            <InputText icono={<v.iconopass />}>
-              <input
-                className="form__field"
-                type="password"
-                placeholder="contraseña"
-                {...register("pass", {
-                  required: true,
-                })}
-              />
-              <label className="form__label">Contraseña</label>
-              {errors.pass?.type === "required" && <p>Campo requerido</p>}
             </InputText>
             <ContainerBtn>
               <Btnsave titulo="Iniciar" bgcolor="#fc6b32" />

@@ -1,11 +1,11 @@
 
 import styled from "styled-components";
-import { v } from "../../index";
+import { v } from "../../../styles/variables";
 import {
   InputText,
   Btnsave,
   useUsuariosStore
-} from "../../index";
+} from "../../../index";
 import { useForm } from "react-hook-form";
 import { MdAlternateEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
@@ -25,7 +25,7 @@ export function RegistrarAdmin({ setState }) {
       const p = {
         correo: data.correo,
         pass:data.pass,
-        tipoUser:"admin"
+        tipouser:"admin"
       }; 
       const dt =   await insertarUsuarioAdmin(p);
       if (dt) {
@@ -64,7 +64,7 @@ export function RegistrarAdmin({ setState }) {
                   pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
                 })}
               />
-               <label className="form__label">Correo Electrónico</label>
+               <label className="form__label">email</label>
               {errors.correo?.type === "pattern" && (
                 <p>El formato del email es incorrecto</p>
               )}
@@ -80,7 +80,7 @@ export function RegistrarAdmin({ setState }) {
                   required: true,
                 })}
               />
- <label className="form__label">Contraseña</label>
+ <label className="form__label">pass</label>
               {errors.pass?.type === "required" && <p>Campo requerido</p>}
             </InputText>
           </article>
@@ -156,5 +156,3 @@ const ContentClose =styled.div`
   
   
 `
-
-

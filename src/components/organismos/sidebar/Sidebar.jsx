@@ -8,7 +8,6 @@ import {
 } from "../../../index";
 import {v} from "../../../styles/variables"
 import { NavLink } from "react-router-dom";
-
 export function Sidebar({ state, setState }) {
 
   return (
@@ -21,7 +20,7 @@ export function Sidebar({ state, setState }) {
           <div className="imgcontent">
             <img src={v.logo} />
           </div>
-          <h2>B.O.S.S.</h2>
+          <h2>StockPRO</h2>
         </div>
         {LinksArray.map(({ icon, label, to }) => (
           <div
@@ -54,7 +53,7 @@ export function Sidebar({ state, setState }) {
               <span className={state ? "label_ver" : "label_oculto"}>
                 {label}
               </span>
-            
+             
             </NavLink>
           </div>
         ))}

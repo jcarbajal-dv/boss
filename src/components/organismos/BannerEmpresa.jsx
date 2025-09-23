@@ -1,25 +1,26 @@
 import styled from "styled-components";
-import { CardDatosEmpresa } from "../moleculas/CardDatosEmpresa";
 import { v } from "../../styles/variables";
-
-
+import { CardDatosEmpresa } from "../moleculas/CardDatosEmpresa";
+import { useEmpresaStore } from "../../store/EmpresaStore";
 export function BannerEmpresa() {
-    return (
+  const {dataempresa,contadorusuarios} = useEmpresaStore();
+  return (
     <Container>
-        <div className="content-wrapper-context">
-            <span className="titulo">
-                {<v.iconoempresa/>}
-                BOSS
-            </span>
-            <div className="content-text">
-                Te organizamos para organizarnos.
-            </div>
-                <ContentCards>
-                    <CardDatosEmpresa titulo="Moneda" valor="ARS" />
-                    <CardDatosEmpresa titulo="Usuarios" valor="100" />
-                    
-                </ContentCards>
+      <div className="content-wrapper-context">
+        <span className="titulo">
+          {<v.iconoempresa />}
+          {dataempresa.empresa?.nombre}
+        </span>
+        <div className="content-text">
+          BOSS permite gestionar tu comercio de manera integral.
         </div>
+        <ContentCards>
+          <CardDatosEmpresa titulo="Moneda" valor={dataempresa.empresa?.simbolomoneda} />
+          
+          <CardDatosEmpresa titulo="Usuarios" valor={contadorusuarios} />
+          
+        </ContentCards>
+      </div>
       <div className="contentsvg">
         <svg
           class="opacity-0 group-hover:opacity-100 transform-gpu transition-all will-change-auto duration-600 ease-in-out"

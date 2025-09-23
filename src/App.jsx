@@ -1,8 +1,8 @@
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import styled, { ThemeProvider } from 'styled-components'
-import {AuthContextProvider, MyRoutes, Light, Dark, Sidebar, SidebarCard, MenuHambur} from "./index"
+import {AuthContextProvider, MyRoutes, Light, Dark, Sidebar, MenuHambur, Login} from "./index"
 import { createContext, useState } from 'react'
-import {Device} from "./styles/breackpoints"
+import {Device} from "./styles/breackpoints";
 import {useLocation} from "react-router-dom";
 
 export const ThemeContext = createContext(null);
@@ -11,14 +11,14 @@ function App() {
 
   const [themeuse, setTheme] = useState('dark');
   const theme = themeuse === "light" ? "light":"dark";
-  const themeStyles = theme=== "light" ? Light : Dark;
+  const themeStyle = theme=== "light" ? Light : Dark;
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const {pathname} = useLocation();
   return (
 
     <>
     <ThemeContext.Provider value={{theme, setTheme}}>
-      <ThemeProvider theme={themeStyles}>
+      <ThemeProvider theme={themeStyle}>
         <AuthContextProvider>
           {pathname == "/Login" ? (
               <Login />
@@ -44,7 +44,7 @@ function App() {
 }
 const Container = styled.main`
   display: grid;
-  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
   background-color: ${({theme}) => theme.bgtotal};
 
   .ContentSidebar{

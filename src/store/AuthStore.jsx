@@ -1,12 +1,13 @@
-import { create } from "zustand";
 import { useState } from "react";
+import { create } from "zustand";
+import { supabase } from "../supabase/supabase.config";
 
 export const useAuthStore = create((set, get) => ({
 
-    signInWithMail: async(p)=> {
+    signInWithEmail: async(p)=> {
         const {data, error} = await supabase.auth.signInWithPassword({
             email: p.correo,
-            password: p.password,
+            password: p.pass,
         })
         if(error){
             return null;

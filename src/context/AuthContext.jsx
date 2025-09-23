@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState} from "react";
-
 import {supabase} from  "../index"
 
 const AuthContext = createContext();
@@ -13,6 +12,7 @@ export const AuthContextProvider = ({ children }) => {
                 if(session?.user==null) {
                     setUser(null);
                 }else{
+                    console.log("data del usuario",session?.user)
                     setUser(session?.user);
                 }
 
@@ -20,7 +20,7 @@ export const AuthContextProvider = ({ children }) => {
     );
     return () => {
         authListener.subscription;
-    }
+    };
 
     }, [])
     return (

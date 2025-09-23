@@ -1,5 +1,5 @@
 import {create} from 'zustand';
-import { InsertarUsuarios, supabase } from '../index';  
+import { InsertarUsuarios, MostrarUsuarios, supabase } from '../index';  
 
 export const useUsuariosStore = create((set,get) => ({
 
@@ -11,12 +11,19 @@ export const useUsuariosStore = create((set,get) => ({
         });
         console.log("data del registro del usuario auth ", data);
         if(error) return;
-        const dataUser = await InsertarUsuarios({
-            idAuth: data.user.id, 
-            fechaRegistro: new Date(), 
-            tipoUser: "Admin",
+        const datauser = await InsertarUsuarios({
+            idauth: data.user.id, 
+            fecharegistro: new Date(), 
+            tipouser: "admin",
         });
-        return dataUser;
+        return datauser;
 
+    },
+    idusuario: 0,
+    mostrarUsuarios: async () => {
+    const response = await MostrarUsuarios();
+    set({ idusuario: response.id });
+    return response;
+    
     },
 }));
